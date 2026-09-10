@@ -2,10 +2,6 @@
 
 This directory contains the core source files, verification environments, build artifacts, and automation scripts for the digital integrated circuit design labs.
 
-# Labs Directory - NTI Digital IC Summer 2026
-
-This directory contains the core source files, verification environments, build artifacts, and automation scripts for the digital integrated circuit design labs.
-
 ## 📂 Directory Structure
 
 * **`build/`**: Working directory used for compilation outputs, synthesis reports, and running simulations.

@@ -1018,10 +1018,3 @@ GitHub Repository:
 
 https://github.com/mazenmahmoud00/NTI_DIGITAL_IC_SUMMER_2026/tree/main/risc_v_single_cycle_processor
 
----
-
-## License
-
-This project was developed for educational and training purposes as part of the **NTI Digital IC Summer 2026** program.
-
-This project was developed for educational and training purposes as part of the NTI Digital IC Summer 2026 program.

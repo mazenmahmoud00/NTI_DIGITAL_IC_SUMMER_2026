@@ -1,0 +1,72 @@
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : riscv_single
+Version: O-2018.06-SP1
+Date   : Fri Sep 11 01:37:22 2026
+****************************************
+
+
+Library(s) Used:
+
+    saed90nm_max (File: /home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db)
+
+
+Operating Conditions: WORST   Library: saed90nm_max
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+riscv_single           280000            saed90nm_max
+program_counter        8000              saed90nm_max
+adder_0                8000              saed90nm_max
+instruction_mem        ForQA             saed90nm_max
+control                8000              saed90nm_max
+reg_file               70000             saed90nm_max
+extend                 ForQA             saed90nm_max
+alu                    8000              saed90nm_max
+data_mem               280000            saed90nm_max
+adder_1                8000              saed90nm_max
+adder_0_DW01_add_0     8000              saed90nm_max
+main_decoder           ForQA             saed90nm_max
+alu_decoder            ForQA             saed90nm_max
+alu_DW01_addsub_0      8000              saed90nm_max
+adder_1_DW01_add_0     8000              saed90nm_max
+
+
+Global Operating Voltage = 0.7  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+riscv_single                            197.999  411.692 8.94e+08 1.50e+03 100.0
+  pc_add_target (adder_1)              1.89e-02    0.476 2.82e+06    3.320   0.2
+    add_6 (adder_1_DW01_add_0)         1.89e-02    0.476 2.82e+06    3.320   0.2
+  dmem (data_mem)                       154.345  319.270 6.77e+08 1.15e+03  76.6
+  alu_inst (alu)                          0.000    0.000 9.66e+06    9.655   0.6
+    r66 (alu_DW01_addsub_0)               0.000    0.000 4.63e+06    4.634   0.3
+  ext (extend)                            0.000    0.000 1.05e+06    1.050   0.1
+  rf (reg_file)                          38.250   86.060 1.91e+08  315.522  21.0
+  c_unit (control)                        0.000    0.000 8.38e+05    0.838   0.1
+    ad (alu_decoder)                      0.000    0.000 3.37e+05    0.337   0.0
+    md (main_decoder)                     0.000    0.000 4.29e+05    0.429   0.0
+  imem (instruction_mem)                  0.000    0.000 5.35e+05    0.535   0.0
+  pc_add_4 (adder_0)                      0.110    0.658 2.84e+06    3.609   0.2
+    add_6 (adder_0_DW01_add_0)            0.110    0.658 2.84e+06    3.609   0.2
+  pcr (program_counter)                   4.159    2.814 2.85e+06    9.823   0.7
+1

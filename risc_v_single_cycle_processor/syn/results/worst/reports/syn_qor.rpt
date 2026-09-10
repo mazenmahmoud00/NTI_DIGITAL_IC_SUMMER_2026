@@ -1,0 +1,71 @@
+ 
+****************************************
+Report : qor
+Design : riscv_single
+Version: O-2018.06-SP1
+Date   : Fri Sep 11 01:37:20 2026
+****************************************
+
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:         14
+  Hierarchical Port Count:       1035
+  Leaf Cell Count:              17901
+  Buf/Inv Cell Count:            3235
+  Buf Cell Count:                1548
+  Inv Cell Count:                1687
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:     12746
+  Sequential Cell Count:         5155
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:   137711.921079
+  Noncombinational Area:
+                        128500.529640
+  Buf/Inv Area:          23985.561788
+  Total Buffer Area:         14527.18
+  Total Inverter Area:        9458.38
+  Macro/Black Box Area:      0.000000
+  Net Area:              22909.191683
+  -----------------------------------
+  Cell Area:            266212.450719
+  Design Area:          289121.642402
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:         18063
+  Nets With Violations:             0
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: IC_EDA
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.66
+  Logic Optimization:                  0.28
+  Mapping Optimization:                1.47
+  -----------------------------------------
+  Overall Compile Time:                4.32
+  Overall Compile Wall Clock Time:     4.61
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1

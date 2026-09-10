@@ -1,0 +1,18 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -max_paths 10
+        -transition_time
+        -capacitance
+Design : riscv_single
+Version: O-2018.06-SP1
+Date   : Fri Sep 11 01:37:22 2026
+****************************************
+
+Operating Conditions: WORST   Library: saed90nm_max
+Wire Load Model Mode: enclosed
+No paths.
+
+1

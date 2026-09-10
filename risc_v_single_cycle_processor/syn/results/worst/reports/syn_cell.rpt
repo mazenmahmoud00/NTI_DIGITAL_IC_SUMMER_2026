@@ -1,0 +1,156 @@
+ 
+****************************************
+Report : cell
+Design : riscv_single
+Version: O-2018.06-SP1
+Date   : Fri Sep 11 01:37:20 2026
+****************************************
+
+Attributes:
+    b - black box (unknown)
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    u - contains unmapped logic
+
+Cell                      Reference       Library             Area  Attributes
+--------------------------------------------------------------------------------
+U3                        AO22X1          saed90nm_max    11.980800 
+U4                        AO22X1          saed90nm_max    11.980800 
+U5                        AO22X1          saed90nm_max    11.980800 
+U6                        AO22X1          saed90nm_max    11.980800 
+U7                        AO22X1          saed90nm_max    11.980800 
+U8                        AO22X1          saed90nm_max    11.980800 
+U9                        AO22X1          saed90nm_max    11.980800 
+U10                       AO22X1          saed90nm_max    11.980800 
+U11                       AO22X1          saed90nm_max    11.980800 
+U12                       AO22X1          saed90nm_max    11.980800 
+U13                       AO22X1          saed90nm_max    11.980800 
+U14                       AO22X1          saed90nm_max    11.980800 
+U15                       AO22X1          saed90nm_max    11.980800 
+U16                       AO22X1          saed90nm_max    11.980800 
+U17                       AO22X1          saed90nm_max    11.980800 
+U18                       AO22X1          saed90nm_max    11.980800 
+U19                       AO22X1          saed90nm_max    11.980800 
+U20                       AO22X1          saed90nm_max    11.980800 
+U21                       AO22X1          saed90nm_max    11.980800 
+U22                       AO22X1          saed90nm_max    11.980800 
+U23                       AO22X1          saed90nm_max    11.980800 
+U24                       AO22X1          saed90nm_max    11.980800 
+U25                       AO22X1          saed90nm_max    11.980800 
+U26                       AO22X1          saed90nm_max    11.980800 
+U27                       AO22X1          saed90nm_max    11.980800 
+U28                       AO22X1          saed90nm_max    11.980800 
+U29                       AO22X1          saed90nm_max    11.980800 
+U30                       AO22X1          saed90nm_max    11.980800 
+U31                       AO22X1          saed90nm_max    11.980800 
+U32                       AO22X1          saed90nm_max    11.980800 
+U33                       AO22X1          saed90nm_max    11.980800 
+U34                       AO22X1          saed90nm_max    11.980800 
+U35                       INVX0           saed90nm_max    5.529600  
+U36                       AO22X1          saed90nm_max    11.980800 
+U37                       AO22X1          saed90nm_max    11.980800 
+U38                       AO22X1          saed90nm_max    11.980800 
+U39                       AO22X1          saed90nm_max    11.980800 
+U40                       AO22X1          saed90nm_max    11.980800 
+U41                       AO22X1          saed90nm_max    11.980800 
+U42                       AO22X1          saed90nm_max    11.980800 
+U43                       AO22X1          saed90nm_max    11.980800 
+U44                       AO22X1          saed90nm_max    11.980800 
+U45                       AO22X1          saed90nm_max    11.980800 
+U46                       AO22X1          saed90nm_max    11.980800 
+U47                       AO22X1          saed90nm_max    11.980800 
+U48                       AO22X1          saed90nm_max    11.980800 
+U49                       AO22X1          saed90nm_max    11.980800 
+U50                       AO22X1          saed90nm_max    11.980800 
+U51                       AO22X1          saed90nm_max    11.980800 
+U52                       AO22X1          saed90nm_max    11.980800 
+U53                       AO22X1          saed90nm_max    11.980800 
+U54                       AO22X1          saed90nm_max    11.980800 
+U55                       AO22X1          saed90nm_max    11.980800 
+U56                       AO22X1          saed90nm_max    11.980800 
+U57                       AO22X1          saed90nm_max    11.980800 
+U58                       AO22X1          saed90nm_max    11.980800 
+U59                       AO22X1          saed90nm_max    11.980800 
+U60                       AO22X1          saed90nm_max    11.980800 
+U61                       AO22X1          saed90nm_max    11.980800 
+U62                       AO22X1          saed90nm_max    11.980800 
+U63                       AO22X1          saed90nm_max    11.980800 
+U64                       AO22X1          saed90nm_max    11.980800 
+U65                       AO22X1          saed90nm_max    11.980800 
+U66                       AO22X1          saed90nm_max    11.980800 
+U67                       AO22X1          saed90nm_max    11.980800 
+U68                       INVX0           saed90nm_max    5.529600  
+U69                       AO22X1          saed90nm_max    11.980800 
+U70                       AO22X1          saed90nm_max    11.980800 
+U71                       AO22X1          saed90nm_max    11.980800 
+U72                       AO22X1          saed90nm_max    11.980800 
+U73                       AO22X1          saed90nm_max    11.980800 
+U74                       AO22X1          saed90nm_max    11.980800 
+U75                       AO22X1          saed90nm_max    11.980800 
+U76                       AO22X1          saed90nm_max    11.980800 
+U77                       AO22X1          saed90nm_max    11.980800 
+U78                       AO22X1          saed90nm_max    11.980800 
+U79                       AO22X1          saed90nm_max    11.980800 
+U80                       AO22X1          saed90nm_max    11.980800 
+U81                       AO22X1          saed90nm_max    11.980800 
+U82                       AO22X1          saed90nm_max    11.980800 
+U83                       AO22X1          saed90nm_max    11.980800 
+U84                       AO22X1          saed90nm_max    11.980800 
+U85                       AO22X1          saed90nm_max    11.980800 
+U86                       AO22X1          saed90nm_max    11.980800 
+U87                       AO22X1          saed90nm_max    11.980800 
+U88                       AO22X1          saed90nm_max    11.980800 
+U89                       AO22X1          saed90nm_max    11.980800 
+U90                       AO22X1          saed90nm_max    11.980800 
+U91                       AO22X1          saed90nm_max    11.980800 
+U92                       AO22X1          saed90nm_max    11.980800 
+U93                       AO22X1          saed90nm_max    11.980800 
+U94                       AO22X1          saed90nm_max    11.980800 
+U95                       AO22X1          saed90nm_max    11.980800 
+U96                       AO22X1          saed90nm_max    11.980800 
+U97                       AO22X1          saed90nm_max    11.980800 
+U98                       AO22X1          saed90nm_max    11.980800 
+U99                       AO22X1          saed90nm_max    11.980800 
+U100                      AO22X1          saed90nm_max    11.980800 
+U101                      INVX0           saed90nm_max    5.529600  
+U102                      INVX0           saed90nm_max    5.529600  
+U103                      INVX2           saed90nm_max    6.451200  
+U104                      INVX0           saed90nm_max    5.529600  
+U105                      INVX2           saed90nm_max    6.451200  
+U106                      INVX0           saed90nm_max    5.529600  
+U107                      INVX0           saed90nm_max    5.529600  
+U108                      INVX0           saed90nm_max    5.529600  
+U109                      INVX0           saed90nm_max    5.529600  
+U110                      INVX0           saed90nm_max    5.529600  
+U111                      INVX0           saed90nm_max    5.529600  
+U112                      INVX0           saed90nm_max    5.529600  
+U113                      INVX0           saed90nm_max    5.529600  
+U114                      INVX0           saed90nm_max    5.529600  
+U115                      INVX0           saed90nm_max    5.529600  
+U116                      INVX0           saed90nm_max    5.529600  
+U117                      INVX0           saed90nm_max    5.529600  
+U118                      NBUFFX4         saed90nm_max    10.137600 
+U119                      NBUFFX4         saed90nm_max    10.137600 
+U120                      NBUFFX4         saed90nm_max    10.137600 
+alu_inst                  alu                             3017.318391
+                                                                    h
+c_unit                    control                         305.049602
+                                                                    h, n
+dmem                      data_mem                        200795.440367
+                                                                    h, n
+ext                       extend                          292.147200
+                                                                    h
+imem                      instruction_mem                 176.947205
+                                                                    h
+pc_add_4                  adder_0                         943.718384
+                                                                    h
+pc_add_target             adder_1                         943.718384
+                                                                    h
+pcr                       program_counter                 1093.017617
+                                                                    h, n
+rf                        reg_file                        57357.618399
+                                                                    h, n
+--------------------------------------------------------------------------------
+Total 127 cells                                           266212.450719
+1

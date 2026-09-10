@@ -1,0 +1,58 @@
+ 
+****************************************
+Report : area
+Design : riscv_single
+Version: O-2018.06-SP1
+Date   : Fri Sep 11 01:37:20 2026
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    saed90nm_max (File: /home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db)
+
+Number of ports:                         1037
+Number of nets:                         19018
+Number of cells:                        17984
+Number of combinational cells:          12746
+Number of sequential cells:              5224
+Number of macros/black boxes:               0
+Number of buf/inv:                       3235
+Number of references:                      13
+
+Combinational area:             137711.921079
+Buf/Inv area:                    23985.561788
+Noncombinational area:          128500.529640
+Macro/Black Box area:                0.000000
+Net Interconnect area:           22909.191683
+
+Total cell area:                266212.450719
+Total area:                     289121.642402
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area              Local cell area
+                                  --------------------  -------------------------------- 
+Hierarchical cell                 Absolute     Percent  Combi-       Noncombi-    Black-
+                                  Total        Total    national     national     boxes   Design
+--------------------------------  -----------  -------  -----------  -----------  ------  ------------------
+riscv_single                      266212.4507    100.0    1287.4752       0.0000  0.0000  riscv_single
+alu_inst                            3017.3184      1.1    1614.6432       0.0000  0.0000  alu
+alu_inst/r66                        1402.6752      0.5    1402.6752       0.0000  0.0000  alu_DW01_addsub_0
+c_unit                               305.0496      0.1       8.2944       0.0000  0.0000  control
+c_unit/ad                            152.0640      0.1      85.7088      66.3552  0.0000  alu_decoder
+c_unit/md                            144.6912      0.1     144.6912       0.0000  0.0000  main_decoder
+dmem                              200795.4404     75.4   98873.8544  101921.5859  0.0000  data_mem
+ext                                  292.1472      0.1     292.1472       0.0000  0.0000  extend
+imem                                 176.9472      0.1     176.9472       0.0000  0.0000  instruction_mem
+pc_add_4                             943.7184      0.4       0.0000       0.0000  0.0000  adder_0
+pc_add_4/add_6                       943.7184      0.4     943.7184       0.0000  0.0000  adder_0_DW01_add_0
+pc_add_target                        943.7184      0.4       0.0000       0.0000  0.0000  adder_1
+pc_add_target/add_6                  943.7184      0.4     943.7184       0.0000  0.0000  adder_1_DW01_add_0
+pcr                                 1093.0176      0.4      60.8256    1032.1920  0.0000  program_counter
+rf                                 57357.6184     21.5   31877.2219   25480.3965  0.0000  reg_file
+--------------------------------  -----------  -------  -----------  -----------  ------  ------------------
+Total                                                   137711.9211  128500.5296  0.0000
+
+1

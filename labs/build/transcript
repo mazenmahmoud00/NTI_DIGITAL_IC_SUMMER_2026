@@ -1,0 +1,83 @@
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do {..\script\edge_detector_counter_top_run.do}
+# QuestaSim-64 vmap 2024.1 Lib Mapping Utility 2024.02 Feb  1 2024
+# vmap work work 
+# Copying C:/questasim64_2024.1/win64/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 18:09:43 on Sep 10,2026
+# vlog -reportprogress 300 ../rtl/edge_detector_counter/binary_to_hex_7segment.v ../rtl/edge_detector_counter/clk_div.v ../rtl/edge_detector_counter/four_bit_edge_counter.v ../rtl/edge_detector_counter/rising_edge_detector_mealy.v ../rtl/edge_detector_counter/edge_detector_counter_top.v ../tb/tb_edge_detector_counter_top.v 
+# -- Compiling module binary_to_hex_7segment
+# -- Compiling module clk_div
+# -- Compiling module four_bit_edge_counter
+# -- Compiling module rising_edge_detector_mealy
+# -- Compiling module edge_detector_counter_top
+# -- Compiling module tb_edge_detector_counter_top
+# 
+# Top level modules:
+# 	tb_edge_detector_counter_top
+# End time: 18:09:44 on Sep 10,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" work.tb_edge_detector_counter_top 
+# Start time: 18:09:44 on Sep 10,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
+# Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.tb_edge_detector_counter_top(fast)
+# Loading work.edge_detector_counter_top(fast)
+# Loading work.clk_div(fast)
+# Loading work.rising_edge_detector_mealy(fast)
+# Loading work.four_bit_edge_counter(fast)
+# Loading work.binary_to_hex_7segment(fast)
+# Time=  0 ns | rst=1 | in=0 | clk_div=0 | tick_mealy=0 | count=0000 | segments=1000000
+# Time=  5 ns | rst=1 | in=0 | clk_div=1 | tick_mealy=0 | count=0000 | segments=1000000
+# Time= 10 ns | rst=1 | in=0 | clk_div=0 | tick_mealy=0 | count=0000 | segments=1000000
+# Time= 15 ns | rst=1 | in=0 | clk_div=1 | tick_mealy=0 | count=0000 | segments=1000000
+# Time= 20 ns | rst=0 | in=0 | clk_div=0 | tick_mealy=0 | count=0000 | segments=1000000
+# Time= 25 ns | rst=0 | in=0 | clk_div=1 | tick_mealy=0 | count=0000 | segments=1000000
+# Time= 30 ns | rst=0 | in=1 | clk_div=0 | tick_mealy=1 | count=0000 | segments=1000000
+# Time= 35 ns | rst=0 | in=1 | clk_div=1 | tick_mealy=0 | count=0001 | segments=1111001
+# Time= 40 ns | rst=0 | in=1 | clk_div=0 | tick_mealy=0 | count=0001 | segments=1111001
+# Time= 45 ns | rst=0 | in=1 | clk_div=1 | tick_mealy=0 | count=0001 | segments=1111001
+# Time= 50 ns | rst=0 | in=1 | clk_div=0 | tick_mealy=0 | count=0001 | segments=1111001
+# Time= 55 ns | rst=0 | in=1 | clk_div=1 | tick_mealy=0 | count=0001 | segments=1111001
+# Time= 60 ns | rst=0 | in=0 | clk_div=0 | tick_mealy=0 | count=0001 | segments=1111001
+# Time= 65 ns | rst=0 | in=0 | clk_div=1 | tick_mealy=0 | count=0001 | segments=1111001
+# Time= 70 ns | rst=0 | in=0 | clk_div=0 | tick_mealy=0 | count=0001 | segments=1111001
+# Time= 75 ns | rst=0 | in=0 | clk_div=1 | tick_mealy=0 | count=0001 | segments=1111001
+# Time= 80 ns | rst=0 | in=1 | clk_div=0 | tick_mealy=1 | count=0001 | segments=1111001
+# Time= 85 ns | rst=0 | in=1 | clk_div=1 | tick_mealy=0 | count=0010 | segments=0100100
+# Time= 90 ns | rst=0 | in=1 | clk_div=0 | tick_mealy=0 | count=0010 | segments=0100100
+# Time= 95 ns | rst=0 | in=1 | clk_div=1 | tick_mealy=0 | count=0010 | segments=0100100
+# Time=100 ns | rst=0 | in=0 | clk_div=0 | tick_mealy=0 | count=0010 | segments=0100100
+# Time=105 ns | rst=0 | in=0 | clk_div=1 | tick_mealy=0 | count=0010 | segments=0100100
+# Time=110 ns | rst=0 | in=1 | clk_div=0 | tick_mealy=1 | count=0010 | segments=0100100
+# Time=115 ns | rst=0 | in=1 | clk_div=1 | tick_mealy=0 | count=0011 | segments=0110000
+# Time=120 ns | rst=0 | in=0 | clk_div=0 | tick_mealy=0 | count=0011 | segments=0110000
+# Time=125 ns | rst=0 | in=0 | clk_div=1 | tick_mealy=0 | count=0011 | segments=0110000
+# Time=130 ns | rst=0 | in=0 | clk_div=0 | tick_mealy=0 | count=0011 | segments=0110000
+# Time=135 ns | rst=0 | in=0 | clk_div=1 | tick_mealy=0 | count=0011 | segments=0110000
+# Time=140 ns | rst=0 | in=0 | clk_div=0 | tick_mealy=0 | count=0011 | segments=0110000
+# Time=145 ns | rst=0 | in=0 | clk_div=1 | tick_mealy=0 | count=0011 | segments=0110000
+# Time=150 ns | rst=0 | in=0 | clk_div=0 | tick_mealy=0 | count=0011 | segments=0110000
+# Time=155 ns | rst=0 | in=0 | clk_div=1 | tick_mealy=0 | count=0011 | segments=0110000
+# Time=160 ns | rst=0 | in=0 | clk_div=0 | tick_mealy=0 | count=0011 | segments=0110000
+# Time=165 ns | rst=0 | in=0 | clk_div=1 | tick_mealy=0 | count=0011 | segments=0110000
+# ** Note: $stop    : ../tb/tb_edge_detector_counter_top.v(37)
+#    Time: 170 ns  Iteration: 0  Instance: /tb_edge_detector_counter_top
+# Break in Module tb_edge_detector_counter_top at ../tb/tb_edge_detector_counter_top.v line 37

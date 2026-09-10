@@ -1,0 +1,164 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11f vlog 2024.1 2024.02, Feb  1 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/Users/Mazen/Desktop/nti 2026/labs/build
+T_opt
+!s110 1789052986
+VaekFl`_]<[T6kFF<:BzFf2
+04 28 4 work tb_edge_detector_counter_top fast 0
+=1-f83dc66e3f75-6aa2c838-2e8-19f30
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work +acc
+Z2 tCvgOpt 0
+n@_opt
+OL;O;2024.1;79
+vbinary_to_hex_7segment
+Z3 2../rtl/edge_detector_counter/binary_to_hex_7segment.v|../rtl/edge_detector_counter/clk_div.v|../rtl/edge_detector_counter/four_bit_edge_counter.v|../rtl/edge_detector_counter/rising_edge_detector_mealy.v|../rtl/edge_detector_counter/edge_detector_counter_top.v|../tb/tb_edge_detector_counter_top.v
+Z4 !s110 1789052983
+!i10b 1
+!s100 `fD:9=EZ_AL1ndGH>gGi00
+I^:HYZ9SD7hn=3=Bd0<gA^1
+R1
+w1788464779
+8../rtl/edge_detector_counter/binary_to_hex_7segment.v
+F../rtl/edge_detector_counter/binary_to_hex_7segment.v
+!i122 0
+L0 1 27
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2024.1;79
+r1
+!s85 0
+31
+Z7 !s108 1789052983.000000
+Z8 !s107 ../tb/tb_edge_detector_counter_top.v|../rtl/edge_detector_counter/edge_detector_counter_top.v|../rtl/edge_detector_counter/rising_edge_detector_mealy.v|../rtl/edge_detector_counter/four_bit_edge_counter.v|../rtl/edge_detector_counter/clk_div.v|../rtl/edge_detector_counter/binary_to_hex_7segment.v|
+Z9 !s90 -reportprogress|300|../rtl/edge_detector_counter/binary_to_hex_7segment.v|../rtl/edge_detector_counter/clk_div.v|../rtl/edge_detector_counter/four_bit_edge_counter.v|../rtl/edge_detector_counter/rising_edge_detector_mealy.v|../rtl/edge_detector_counter/edge_detector_counter_top.v|../tb/tb_edge_detector_counter_top.v|
+!i113 0
+Z10 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vclk_div
+R3
+R4
+!i10b 1
+!s100 0ThDRKBYzSlcj93[dgGkz3
+IiVnfXZh_1>JLX;ozoGDjY0
+R1
+w1788465046
+8../rtl/edge_detector_counter/clk_div.v
+F../rtl/edge_detector_counter/clk_div.v
+!i122 0
+L0 1 29
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R2
+vedge_detector_counter_top
+R3
+Z11 !s110 1789052984
+!i10b 1
+!s100 mo]HDR5NB?_z8]gN:YEA>2
+IOiRVN2lAOO>h?a0URL77T0
+R1
+w1788465884
+8../rtl/edge_detector_counter/edge_detector_counter_top.v
+F../rtl/edge_detector_counter/edge_detector_counter_top.v
+!i122 0
+L0 1 40
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R2
+vfour_bit_edge_counter
+R3
+R11
+!i10b 1
+!s100 VM?Kg5dQ:Uf3LACI=I:b02
+I2<BED0O4L>kGf1>kbhN1o3
+R1
+w1788464874
+8../rtl/edge_detector_counter/four_bit_edge_counter.v
+F../rtl/edge_detector_counter/four_bit_edge_counter.v
+!i122 0
+L0 1 14
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R2
+vrising_edge_detector_mealy
+R3
+R11
+!i10b 1
+!s100 jR0E57LN6HC79TL;oST6<2
+IK[6Y7F:M>8QUaL7O1jGgY3
+R1
+w1788465199
+8../rtl/edge_detector_counter/rising_edge_detector_mealy.v
+F../rtl/edge_detector_counter/rising_edge_detector_mealy.v
+!i122 0
+L0 1 35
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R2
+vtb_edge_detector_counter_top
+R3
+R11
+!i10b 1
+!s100 :kfMd[h6<?dnm;SPeF<7[1
+In0Jn@Ee02gz6bJijm3eIV1
+R1
+w1788806699
+8../tb/tb_edge_detector_counter_top.v
+F../tb/tb_edge_detector_counter_top.v
+!i122 0
+L0 1 43
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R2

@@ -1,0 +1,7 @@
+BEGIN 1:edge_detector_counter_top:fast:work
+    tick_mealy :  1:tb_edge_detector_counter_top:fast:work
+    count :  1:tb_edge_detector_counter_top:fast:work
+END 
+BEGIN 1:clk_div:fast:work
+    clk_out :  1:tb_edge_detector_counter_top:fast:work
+END 

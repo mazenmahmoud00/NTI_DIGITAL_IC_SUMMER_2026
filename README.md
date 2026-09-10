@@ -18,6 +18,7 @@ All script paths are fully adjusted. To run codes via Questa or ModelSim from an
 ```bash
 cd build
 vsim -do ../script/<script_name>.do
+```
 
 # 2) Final project
 

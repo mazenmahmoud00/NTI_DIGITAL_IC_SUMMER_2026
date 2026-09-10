@@ -20,6 +20,7 @@ cd build
 vsim -do ../script/<script_name>.do
 ```
 
+# 2) Final Project
 
 # RISC-V Single-Cycle Processor
 

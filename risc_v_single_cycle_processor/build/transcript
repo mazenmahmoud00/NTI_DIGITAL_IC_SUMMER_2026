@@ -1,0 +1,167 @@
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do {..\script\run.do}
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 20:14:46 on Sep 10,2026
+# vlog -reportprogress 300 ../rtl/program_counter.v 
+# -- Compiling module program_counter
+# 
+# Top level modules:
+# 	program_counter
+# End time: 20:14:46 on Sep 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 20:14:47 on Sep 10,2026
+# vlog -reportprogress 300 ../rtl/instruction_mem.v 
+# -- Compiling module instruction_mem
+# 
+# Top level modules:
+# 	instruction_mem
+# End time: 20:14:47 on Sep 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 20:14:47 on Sep 10,2026
+# vlog -reportprogress 300 ../rtl/data_mem.v 
+# -- Compiling module data_mem
+# 
+# Top level modules:
+# 	data_mem
+# End time: 20:14:47 on Sep 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 20:14:47 on Sep 10,2026
+# vlog -reportprogress 300 ../rtl/reg_file.v 
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 20:14:47 on Sep 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 20:14:47 on Sep 10,2026
+# vlog -reportprogress 300 ../rtl/alu.v 
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 20:14:47 on Sep 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 20:14:47 on Sep 10,2026
+# vlog -reportprogress 300 ../rtl/adder.v 
+# -- Compiling module adder
+# 
+# Top level modules:
+# 	adder
+# End time: 20:14:47 on Sep 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 20:14:47 on Sep 10,2026
+# vlog -reportprogress 300 ../rtl/alu_decoder.v 
+# -- Compiling module alu_decoder
+# 
+# Top level modules:
+# 	alu_decoder
+# End time: 20:14:47 on Sep 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 20:14:47 on Sep 10,2026
+# vlog -reportprogress 300 ../rtl/main_decoder.v 
+# -- Compiling module main_decoder
+# 
+# Top level modules:
+# 	main_decoder
+# End time: 20:14:47 on Sep 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 20:14:47 on Sep 10,2026
+# vlog -reportprogress 300 ../rtl/control.v 
+# -- Compiling module control
+# 
+# Top level modules:
+# 	control
+# End time: 20:14:47 on Sep 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 20:14:47 on Sep 10,2026
+# vlog -reportprogress 300 ../rtl/extend.v 
+# -- Compiling module extend
+# 
+# Top level modules:
+# 	extend
+# End time: 20:14:47 on Sep 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 20:14:47 on Sep 10,2026
+# vlog -reportprogress 300 ../rtl/riscv_single.v 
+# -- Compiling module riscv_single
+# 
+# Top level modules:
+# 	riscv_single
+# End time: 20:14:47 on Sep 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 20:14:47 on Sep 10,2026
+# vlog -reportprogress 300 ../tb/tb_riscv_single.v 
+# -- Compiling module tb_riscv_single
+# 
+# Top level modules:
+# 	tb_riscv_single
+# End time: 20:14:47 on Sep 10,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.tb_riscv_single 
+# Start time: 20:14:48 on Sep 10,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
+# Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.tb_riscv_single(fast)
+# Loading work.riscv_single(fast)
+# Loading work.program_counter(fast)
+# Loading work.adder(fast)
+# Loading work.instruction_mem(fast)
+# Loading work.control(fast)
+# Loading work.main_decoder(fast)
+# Loading work.alu_decoder(fast)
+# Loading work.reg_file(fast)
+# Loading work.extend(fast)
+# Loading work.alu(fast)
+# Loading work.data_mem(fast)
+# --------------------------------------------------
+# Running Test: (R-type) Arithmetic, Logic & (I-type) Imm
+# [PASS] ADD (x4): 10 + 5 = 15
+# [PASS] SUB (x5): 10 - 5 = 5
+# [PASS] AND (x6): 10 & 5 = 0
+# [PASS] OR  (x7): 10 | 5 = 15
+# [PASS] XOR (x8): 10 ^ 5 = 15
+# [PASS] SLT (x9): 5 < 10 is True (1)
+# [PASS] ORI  (x10): 10 | 5 = 15
+# [PASS] ANDI (x11): 10 & 5 = 0
+# [PASS] SLTI (x12): 10 < 20 is True (1)
+# --------------------------------------------------
+# Running Test: Control Flow & Branching (B-type) [BEQ] 
+# [PASS] BEQ Match taken successfully (x4 = 1)
+# --------------------------------------------------
+# Running Test: Store(S-type), Load(I-type)  [Memory Operations]
+# [PASS] SW Check: MEM[16] holds 50
+# [PASS] LW Check: Register x4 loaded 50 from MEM[16]
+# --------------------------------------------------
+# All Programs Completed Successfully!
+# ** Note: $stop    : ../tb/tb_riscv_single.v(131)
+#    Time: 720 ns  Iteration: 1  Instance: /tb_riscv_single
+# Break in Module tb_riscv_single at ../tb/tb_riscv_single.v line 131
+# End time: 20:16:33 on Sep 10,2026, Elapsed time: 0:01:45
+# Errors: 0, Warnings: 1

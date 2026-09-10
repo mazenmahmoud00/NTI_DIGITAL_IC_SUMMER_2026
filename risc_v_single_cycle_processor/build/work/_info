@@ -1,0 +1,302 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11f vlog 2024.1 2024.02, Feb  1 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/Users/Mazen/Desktop/nti 2026/risc_v_single_cycle_processor/build
+T_opt
+!s110 1789060488
+VAXEm`h<KO8DY4aJ3=aOk62
+04 15 4 work tb_riscv_single fast 0
+=1-f83dc66e3f75-6aa2e588-115-1b7b8
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work +acc
+Z2 tCvgOpt 0
+n@_opt
+OL;O;2024.1;79
+vadder
+2../rtl/adder.v
+Z3 !s110 1789060487
+!i10b 1
+!s100 F6VdF>mKa<d^a7K<dhM8;3
+IiNlHd^7hCF;Rn:h3kRWL91
+R1
+w1788861639
+8../rtl/adder.v
+F../rtl/adder.v
+!i122 5
+L0 1 8
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 OL;L;2024.1;79
+r1
+!s85 0
+31
+Z6 !s108 1789060487.000000
+!s107 ../rtl/adder.v|
+!s90 -reportprogress|300|../rtl/adder.v|
+!i113 0
+Z7 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+valu
+2../rtl/alu.v
+R3
+!i10b 1
+!s100 IdS6C02aaWEADbYzm>eUJ2
+ISQK0d@l17V_;glc?oe>381
+R1
+w1788876462
+8../rtl/alu.v
+F../rtl/alu.v
+!i122 4
+L0 1 32
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../rtl/alu.v|
+!s90 -reportprogress|300|../rtl/alu.v|
+!i113 0
+R7
+R2
+valu_decoder
+2../rtl/alu_decoder.v
+R3
+!i10b 1
+!s100 XW8[NoY@F?PjFdb_@`PkQ2
+InjN4TAO>Va[@j0HcPNzJZ0
+R1
+w1788930275
+8../rtl/alu_decoder.v
+F../rtl/alu_decoder.v
+!i122 6
+L0 1 39
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../rtl/alu_decoder.v|
+!s90 -reportprogress|300|../rtl/alu_decoder.v|
+!i113 0
+R7
+R2
+vcontrol
+2../rtl/control.v
+R3
+!i10b 1
+!s100 H89dMNje534ozZz4a1Uj^2
+IoB1fzZ5f<Q8JL?fS0YYk>0
+R1
+w1789056775
+8../rtl/control.v
+F../rtl/control.v
+!i122 8
+L0 1 40
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../rtl/control.v|
+!s90 -reportprogress|300|../rtl/control.v|
+!i113 0
+R7
+R2
+vdata_mem
+2../rtl/data_mem.v
+R3
+!i10b 1
+!s100 Yf@L3QZMU[>?DEC^KC>Vz1
+I6:Ik4A@QcmkeR]U5QLQ5j2
+R1
+w1789058252
+8../rtl/data_mem.v
+F../rtl/data_mem.v
+!i122 2
+L0 1 15
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../rtl/data_mem.v|
+!s90 -reportprogress|300|../rtl/data_mem.v|
+!i113 0
+R7
+R2
+vextend
+2../rtl/extend.v
+R3
+!i10b 1
+!s100 dFZo_4>6IVMo7GJ40T2c=2
+I6]O_XQV`7RaEN=ND=Og2@1
+R1
+w1788874996
+8../rtl/extend.v
+F../rtl/extend.v
+!i122 9
+L0 1 23
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../rtl/extend.v|
+!s90 -reportprogress|300|../rtl/extend.v|
+!i113 0
+R7
+R2
+vinstruction_mem
+2../rtl/instruction_mem.v
+R3
+!i10b 1
+!s100 cJj_5miB7TbUf?6c<8gC01
+IFY2_]]bDGSnd:ITl0Alnc3
+R1
+w1789058205
+8../rtl/instruction_mem.v
+F../rtl/instruction_mem.v
+!i122 1
+L0 1 11
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../rtl/instruction_mem.v|
+!s90 -reportprogress|300|../rtl/instruction_mem.v|
+!i113 0
+R7
+R2
+vmain_decoder
+2../rtl/main_decoder.v
+R3
+!i10b 1
+!s100 1NoI5HV6i[4:_ZS^YVnc<1
+IW_@[`LIPziGe19IBlE?@h0
+R1
+w1789058655
+8../rtl/main_decoder.v
+F../rtl/main_decoder.v
+!i122 7
+L0 1 56
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../rtl/main_decoder.v|
+!s90 -reportprogress|300|../rtl/main_decoder.v|
+!i113 0
+R7
+R2
+vprogram_counter
+2../rtl/program_counter.v
+!s110 1789060486
+!i10b 1
+!s100 jn?K=K_N<d6c=l9bIL[UG2
+I`LQLi77jh?:M^FM<ngL?>2
+R1
+w1788855020
+8../rtl/program_counter.v
+F../rtl/program_counter.v
+!i122 0
+L0 1 13
+R4
+R5
+r1
+!s85 0
+31
+!s108 1789060486.000000
+!s107 ../rtl/program_counter.v|
+!s90 -reportprogress|300|../rtl/program_counter.v|
+!i113 0
+R7
+R2
+vreg_file
+2../rtl/reg_file.v
+R3
+!i10b 1
+!s100 `4aCVB:L^[9i61M3M0T@Z1
+I9[SD;@iKCJ]gESY>9X8JI1
+R1
+w1789056722
+8../rtl/reg_file.v
+F../rtl/reg_file.v
+!i122 3
+L0 1 17
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../rtl/reg_file.v|
+!s90 -reportprogress|300|../rtl/reg_file.v|
+!i113 0
+R7
+R2
+vriscv_single
+2../rtl/riscv_single.v
+R3
+!i10b 1
+!s100 ANCdR>n:CdKJ]M_`@oKja1
+IRUPZA1KW2lR::XR[2OI^41
+R1
+w1789058514
+8../rtl/riscv_single.v
+F../rtl/riscv_single.v
+!i122 10
+L0 1 89
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../rtl/riscv_single.v|
+!s90 -reportprogress|300|../rtl/riscv_single.v|
+!i113 0
+R7
+R2
+vtb_riscv_single
+2../tb/tb_riscv_single.v
+R3
+!i10b 1
+!s100 PW:HoeSlA8497YA;8?5:A2
+IPaKbJgbJDDB;M@XlD@8332
+R1
+w1789059951
+8../tb/tb_riscv_single.v
+F../tb/tb_riscv_single.v
+!i122 11
+L0 1 134
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../tb/tb_riscv_single.v|
+!s90 -reportprogress|300|../tb/tb_riscv_single.v|
+!i113 0
+R7
+R2

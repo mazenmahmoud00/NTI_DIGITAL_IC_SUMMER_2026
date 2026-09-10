@@ -1,0 +1,9 @@
+BEGIN 1:reg_file:fast:work
+    registers :  1:tb_riscv_single:fast:work
+END 
+BEGIN 1:data_mem:fast:work
+    mem :  1:tb_riscv_single:fast:work
+END 
+BEGIN 1:instruction_mem:fast:work
+    mem :  1:tb_riscv_single:fast:work
+END 

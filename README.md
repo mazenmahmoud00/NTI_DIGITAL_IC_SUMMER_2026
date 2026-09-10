@@ -21,34 +21,126 @@ vsim -do ../script/<script_name>.do
 ```
 
 
-# 2) Final project
-
-
 # RISC-V Single-Cycle Processor
 
 A **32-bit RISC-V Single-Cycle Processor** implemented in Verilog HDL as part of the **NTI Digital IC Summer 2026 Training**.
 
-The project covers the complete RTL-to-synthesis flow, from designing and verifying the processor at RTL level to synthesizing the design using **Synopsys Design Compiler (`dc_shell`)**.
+The project implements a modular single-cycle datapath containing the program counter, instruction memory, register file, ALU, immediate extension unit, control unit, and data memory.
+
+The processor is designed for educational purposes to demonstrate the fundamentals of **RISC-V ISA**, datapath design, control generation, RTL modeling, simulation, and verification.
 
 ---
 
 ## Features
 
-* 32-bit RISC-V single-cycle processor
+* 32-bit RISC-V processor
+* Single-cycle datapath
 * Modular Verilog RTL implementation
-* Instruction and data memory
+* Separate instruction and data memories
 * 32 general-purpose registers
 * Immediate generation and sign extension
 * ALU supporting arithmetic and logical operations
 * Main control decoder
 * ALU decoder
 * Conditional branching using `BEQ`
-* Load/store operations
-* Assembly test programs
-* RTL simulation using **QuestaSim**
-* Logic synthesis using **Synopsys Design Compiler**
-* Synthesis performed using **`dc_shell`**
-* RTL-to-gate-level design flow
+* Load/store memory operations
+* Assembly programs converted to machine-code HEX files
+* Automated simulation through a dedicated testbench
+* Designed for simulation using **QuestaSim / ModelSim**
+
+---
+
+## Supported Instructions
+
+The current implementation supports a subset of the **RV32I** instruction set.
+
+### R-Type
+
+| Instruction | Description            |
+| ----------- | ---------------------- |
+| `ADD`       | Addition               |
+| `SUB`       | Subtraction            |
+| `AND`       | Bitwise AND            |
+| `OR`        | Bitwise OR             |
+| `SLT`       | Set Less Than          |
+| `SLTU`      | Set Less Than Unsigned |
+
+### I-Type
+
+| Instruction | Description                      |
+| ----------- | -------------------------------- |
+| `ADDI`      | Add Immediate                    |
+| `ANDI`      | AND Immediate                    |
+| `ORI`       | OR Immediate                     |
+| `SLTI`      | Set Less Than Immediate          |
+| `SLTIU`     | Set Less Than Immediate Unsigned |
+| `LW`        | Load Word                        |
+
+### S-Type
+
+| Instruction | Description |
+| ----------- | ----------- |
+| `SW`        | Store Word  |
+
+### B-Type
+
+| Instruction | Description     |
+| ----------- | --------------- |
+| `BEQ`       | Branch if Equal |
+
+The control logic identifies load, store, R-type, immediate ALU, and branch instructions through their RISC-V opcodes.
+
+---
+
+## Processor Architecture
+
+The processor follows the standard single-cycle architecture:
+
+```text
+                 ┌─────────────────┐
+                 │ Program Counter │
+                 └────────┬────────┘
+                          │
+                          ▼
+                 ┌─────────────────┐
+                 │ Instruction     │
+                 │ Memory          │
+                 └────────┬────────┘
+                          │
+                          ▼
+                ┌───────────────────┐
+                │ Control Unit      │
+                │                   │
+                │ Main Decoder      │
+                │ ALU Decoder       │
+                └─────────┬─────────┘
+                          │
+             ┌────────────┴────────────┐
+             │                         │
+             ▼                         ▼
+      ┌──────────────┐          ┌─────────────┐
+      │ Register File│          │ Immediate   │
+      │              │          │ Extension   │
+      └──────┬───────┘          └──────┬──────┘
+             │                         │
+             └──────────┬──────────────┘
+                        ▼
+                  ┌───────────┐
+                  │    ALU    │
+                  └─────┬─────┘
+                        │
+             ┌──────────┴──────────┐
+             │                     │
+             ▼                     ▼
+      ┌─────────────┐       ┌─────────────┐
+      │ Data Memory │       │ Write Back  │
+      └─────────────┘       └──────┬──────┘
+                                   │
+                                   ▼
+                            Register File
+```
+
+The top-level module connects the PC, instruction memory, control logic, register file, immediate extension, ALU, data memory, and PC branch-target calculation.
 
 ---
 
@@ -58,7 +150,7 @@ The project covers the complete RTL-to-synthesis flow, from designing and verify
 risc_v_single_cycle_processor/
 │
 ├── Images/
-│   └── Processor diagrams / simulation / synthesis images
+│   └── Processor diagrams / simulation images
 │
 ├── rtl/
 │   ├── adder.v
@@ -85,379 +177,412 @@ risc_v_single_cycle_processor/
 │   └── program_r_type&imm.hex
 │
 ├── script/
-│   └── Simulation and synthesis scripts
+│   └── Simulation / build scripts
 │
 ├── build/
-│   └── Build / generated files
+│   └── Build and generated files
 │
 └── syn/
-    └── Synthesis files and reports
+    └── Synthesis-related files
+```
+
+The RTL directory contains the individual processor blocks, while the `program` directory contains assembly test programs and their corresponding HEX machine-code files.
+
+---
+
+## RTL Modules
+
+### `riscv_single.v`
+
+Top-level processor module.
+
+It integrates:
+
+* Program Counter
+* Instruction Memory
+* Register File
+* Control Unit
+* Immediate Extension
+* ALU
+* Data Memory
+* PC + 4 adder
+* Branch target adder
+* Multiplexing for ALU and write-back paths
+
+### `program_counter.v`
+
+Stores the current program counter and updates it on every clock cycle.
+
+The next PC is selected between:
+
+```text
+PC + 4
+```
+
+and
+
+```text
+PC + Immediate
+```
+
+for taken branches.
+
+### `instruction_mem.v`
+
+Contains the instruction memory.
+
+The current implementation uses a 256-word memory:
+
+```verilog
+reg [31:0] mem [0:255];
+```
+
+Instructions are addressed using `A[31:2]`, reflecting 32-bit word-aligned instructions.
+
+### `reg_file.v`
+
+Implements the RISC-V register file with:
+
+* Two read ports
+* One write port
+* Register write enable
+* Clocked writes
+
+The testbench accesses the internal register array for verification.
+
+### `alu.v`
+
+Performs arithmetic and logical operations.
+
+Current ALU operations include:
+
+```text
+ADD
+SUB
+AND
+OR
+SLT
+```
+
+The ALU also generates a `zero` flag used by `BEQ`.
+
+### `extend.v`
+
+Generates and sign-extends immediate values according to the instruction format.
+
+The immediate formats used include:
+
+* I-type
+* S-type
+* B-type
+
+### `main_decoder.v`
+
+Generates the main control signals based on the instruction opcode.
+
+Important control signals include:
+
+```text
+Branch
+ResultSrc
+MemWrite
+ALUSrc
+ImmSrc
+RegWrite
+ALUOp
+```
+
+### `alu_decoder.v`
+
+Converts `ALUOp`, `funct3`, and `funct7` information into the required ALU control signal.
+
+It distinguishes operations such as:
+
+```text
+ADD
+SUB
+SLT
+SLTU
+OR
+AND
+```
+
+### `data_mem.v`
+
+Implements the processor's data memory and supports memory read/write operations for `LW` and `SW`.
+
+---
+
+# Instruction Execution
+
+## R-Type
+
+Example:
+
+```asm
+add x4, x1, x2
+```
+
+The processor:
+
+1. Fetches the instruction.
+2. Reads `x1` and `x2`.
+3. Selects register data as ALU inputs.
+4. ALU performs addition.
+5. Result is written back to `x4`.
+
+---
+
+## I-Type
+
+Example:
+
+```asm
+addi x3, x1, 10
+```
+
+The immediate is generated by the immediate extension unit and selected as the second ALU input.
+
+```text
+Register → ALU ← Immediate
+```
+
+---
+
+## Load Word
+
+Example:
+
+```asm
+lw x4, 16(x0)
+```
+
+Execution:
+
+```text
+Base Register + Immediate
+          ↓
+      ALU Address
+          ↓
+      Data Memory
+          ↓
+      Register File
+```
+
+---
+
+## Store Word
+
+Example:
+
+```asm
+sw x3, 16(x0)
+```
+
+Execution:
+
+```text
+Base Register + Immediate
+          ↓
+      ALU Address
+          ↓
+      Data Memory
+          ↑
+       Register
+```
+
+The ALU calculates the memory address while the register file supplies the data to be stored.
+
+---
+
+## BEQ
+
+Example:
+
+```asm
+beq x1, x2, label
+```
+
+The ALU subtracts the two register operands:
+
+```text
+x1 - x2
+```
+
+If the result is zero:
+
+```text
+zero = 1
+```
+
+and the branch target is selected as the next PC.
+
+The top-level datapath implements:
+
+```verilog
+assign pc_next = pc_src ? pc_target : pc_plus_4;
 ```
 
 ---
 
 # Verification
 
-The RTL design is verified using a dedicated Verilog testbench located in:
+The project includes a dedicated Verilog testbench:
 
 ```text
 tb/tb_riscv_single.v
 ```
 
-The verification covers:
+The testbench verifies three major groups of functionality:
 
-* R-type instructions
-* Immediate instructions
-* Branch instructions
-* Load/store instructions
-* Register-file operations
-* Data-memory operations
-* Program-counter updates
+### 1. R-Type and Immediate Instructions
 
-Simulation is performed using **QuestaSim**.
+Tests include:
 
----
+* `ADD`
+* `SUB`
+* `AND`
+* `OR`
+* `XOR`
+* `SLT`
+* `ORI`
+* `ANDI`
+* `SLTI`
 
-# Synthesis
+### 2. Control Flow
 
-After functional verification at RTL level, the processor is synthesized using **Synopsys Design Compiler (DC)**.
+The `BEQ` program verifies conditional branching and checks the resulting register value.
 
-The synthesis flow converts the RTL Verilog description into a technology-mapped gate-level netlist based on the selected standard-cell library.
+### 3. Memory Operations
 
-### Synthesis Tool
+The memory test verifies:
 
-**Synopsys Design Compiler**
+* `SW`
+* `LW`
 
-Command-line environment:
-
-```text
-dc_shell
-```
-
-### Synthesis Flow
-
-```text
-              RTL Verilog
-                   │
-                   ▼
-          ┌─────────────────┐
-          │ Read / Analyze  │
-          │      RTL        │
-          └────────┬────────┘
-                   │
-                   ▼
-          ┌─────────────────┐
-          │ Elaborate Design│
-          └────────┬────────┘
-                   │
-                   ▼
-          ┌─────────────────┐
-          │ Set Constraints │
-          │ Clock / I/O     │
-          └────────┬────────┘
-                   │
-                   ▼
-          ┌─────────────────┐
-          │     Compile     │
-          │   / Optimize    │
-          └────────┬────────┘
-                   │
-                   ▼
-          ┌─────────────────┐
-          │ Generate Reports│
-          │                 │
-          │ Timing          │
-          │ Area            │
-          │ Power           │
-          └────────┬────────┘
-                   │
-                   ▼
-          ┌─────────────────┐
-          │ Gate-Level      │
-          │ Netlist         │
-          └─────────────────┘
-```
+For example, the testbench checks that memory location `16` contains `50` after the store operation and that the value can subsequently be loaded into register `x4`.
 
 ---
 
-## Design Compiler Flow
+# Test Programs
 
-The synthesis scripts are located in:
+The `program/` directory contains assembly programs and their machine-code representations.
 
-```text
-script/
-```
+### `program_r_type&imm.s`
 
-and synthesis-related files and generated reports are organized under:
+Tests arithmetic, logical, comparison, and immediate instructions.
 
-```text
-syn/
-```
+### `program_control.s`
 
-A typical Design Compiler session is started using:
+Tests control-flow behavior, particularly `BEQ`.
 
-```bash
-dc_shell
-```
+### `program_mem.s`
 
-The synthesis script can then be sourced from the DC shell:
+Tests load/store operations.
 
-```tcl
-source ./script/synthesis.tcl
-```
-
-The exact script name may vary depending on the synthesis setup.
+Each assembly program has a corresponding `.hex` file that can be loaded into instruction memory during simulation.
 
 ---
 
-## Synthesis Steps
+# Simulation
 
-### 1. Analyze RTL
+The project is intended to be simulated using **QuestaSim / ModelSim**.
 
-The Verilog source files are analyzed by Design Compiler.
+A typical simulation flow is:
 
-```tcl
-analyze -format verilog {
-    ../rtl/adder.v
-    ../rtl/alu.v
-    ../rtl/alu_decoder.v
-    ../rtl/control.v
-    ../rtl/data_mem.v
-    ../rtl/extend.v
-    ../rtl/instruction_mem.v
-    ../rtl/main_decoder.v
-    ../rtl/program_counter.v
-    ../rtl/reg_file.v
-    ../rtl/riscv_single.v
-}
+```text
+1. Compile RTL
+       ↓
+2. Compile Testbench
+       ↓
+3. Start Simulation
+       ↓
+4. Apply Reset
+       ↓
+5. Load Program HEX
+       ↓
+6. Run Clock Cycles
+       ↓
+7. Check Register / Memory Results
 ```
 
-### 2. Elaborate
-
-The top-level design is elaborated:
-
-```tcl
-elaborate riscv_single
-```
-
-The design hierarchy and RTL connectivity are then checked.
-
-### 3. Set Clock
-
-A clock constraint is applied to the processor clock.
+The testbench uses `$readmemh` to load the selected HEX program into instruction memory.
 
 Example:
 
-```tcl
-create_clock -name clk -period 10 [get_ports clk]
-```
-
-This corresponds to a target clock period of:
-
-```text
-10 ns
-```
-
-or:
-
-```text
-100 MHz
-```
-
-### 4. Set Design Constraints
-
-Input and output timing constraints can be applied to define the expected operating environment.
-
-Typical constraints include:
-
-```tcl
-set_input_delay
-set_output_delay
-set_clock_uncertainty
-set_driving_cell
-set_load
-```
-
-### 5. Compile
-
-Design Compiler optimizes and maps the RTL design to the target standard-cell library.
-
-```tcl
-compile
-```
-
-For more aggressive optimization, the flow may use:
-
-```tcl
-compile_ultra
-```
-
-depending on the available Design Compiler configuration.
-
----
-
-# Synthesis Reports
-
-After synthesis, several reports can be generated to evaluate the implementation.
-
-### Area Report
-
-```tcl
-report_area
-```
-
-The area report provides information about the amount of standard-cell area used by the synthesized processor.
-
-Important metrics include:
-
-* Combinational area
-* Sequential area
-* Total cell area
-* Number of cells
-
-### Timing Report
-
-```tcl
-report_timing
-```
-
-The timing report is used to determine whether the processor meets the target clock constraint.
-
-Important metrics include:
-
-* Data arrival time
-* Data required time
-* Slack
-* Critical path
-* Startpoint
-* Endpoint
-
-### Constraint Report
-
-```tcl
-report_constraint -all_violators
-```
-
-This helps identify timing or design-constraint violations.
-
-### Power Report
-
-If power analysis is configured:
-
-```tcl
-report_power
-```
-
-This can be used to estimate:
-
-* Switching power
-* Internal power
-* Leakage power
-* Total power
-
----
-
-# RTL-to-Gate-Level Flow
-
-The complete project flow is:
-
-```text
-       RISC-V Assembly
-              │
-              ▼
-       Machine Code / HEX
-              │
-              ▼
-       ┌───────────────┐
-       │ Verilog RTL   │
-       └───────┬───────┘
-               │
-               ▼
-       ┌───────────────┐
-       │   QuestaSim   │
-       │ RTL Simulation│
-       └───────┬───────┘
-               │
-          Verification
-               │
-               ▼
-       ┌───────────────┐
-       │ Design        │
-       │ Compiler      │
-       │  (dc_shell)   │
-       └───────┬───────┘
-               │
-               ▼
-       ┌───────────────┐
-       │ Synthesis     │
-       │ Optimization  │
-       └───────┬───────┘
-               │
-        ┌──────┴───────┐
-        ▼              ▼
-   Timing Report   Area Report
-        │              │
-        └──────┬───────┘
-               ▼
-       Gate-Level Netlist
+```verilog
+$readmemh("../program/program_control.hex", dut.imem.mem);
 ```
 
 ---
 
-# Tools Used
+# Reset
 
-| Tool                         | Purpose                                |
-| ---------------------------- | -------------------------------------- |
-| **Verilog HDL**              | RTL design                             |
-| **QuestaSim 2024.1**         | RTL simulation and verification        |
-| **Synopsys Design Compiler** | Logic synthesis                        |
-| **dc_shell**                 | Design Compiler command-line interface |
-| **Git / GitHub**             | Version control and project management |
-| **RISC-V toolchain**         | Assembly / machine-code generation     |
+The processor includes an active reset input:
+
+```verilog
+input rst
+```
+
+During reset, the program counter and relevant state are initialized before program execution begins.
+
+The testbench applies reset for several clock cycles before releasing the processor.
 
 ---
 
-# Synthesis Results
+# Design Philosophy
 
-The synthesis stage is used to evaluate the processor implementation in terms of:
+The processor is intentionally implemented as a **single-cycle architecture**.
 
-* **Area**
-* **Timing**
-* **Critical path**
-* **Slack**
-* **Cell utilization**
-* **Power**, when available
-
-The generated synthesis reports are stored in:
+Each instruction completes all of its required operations within one clock cycle:
 
 ```text
-syn/
+Instruction Fetch
+       ↓
+Instruction Decode
+       ↓
+Register Read
+       ↓
+Execute
+       ↓
+Memory Access
+       ↓
+Write Back
 ```
 
-This allows the RTL implementation to be evaluated beyond functional correctness and provides an initial view of its hardware cost and timing performance.
+This makes the architecture simple to understand and suitable for learning CPU datapath and control design.
+
+---
+
+# Tools
+
+Recommended tools:
+
+* **QuestaSim 2024.1**
+* ModelSim
+* Verilog HDL
+* RISC-V assembler/toolchain for generating machine code
+* Git / GitHub
 
 ---
 
 # Learning Objectives
 
-This project demonstrates practical experience with:
+This project demonstrates practical understanding of:
 
-* RISC-V ISA
-* RV32I instruction encoding
-* Single-cycle CPU architecture
-* Datapath design
+* RISC-V instruction encoding
+* CPU datapath design
 * Control-unit design
-* RTL coding in Verilog
-* Functional verification
+* ALU design
+* Register-file implementation
+* Instruction and data memories
+* Immediate generation
+* Branch handling
+* RTL design using Verilog
 * Testbench development
-* QuestaSim simulation
-* Timing constraints
-* Logic synthesis
-* Synopsys Design Compiler
-* `dc_shell`
-* Area analysis
-* Timing analysis
-* RTL-to-gate-level design flow
+* Functional verification
+* Simulation using QuestaSim
+* Basic synthesis flow
 
 ---
 
@@ -465,17 +590,18 @@ This project demonstrates practical experience with:
 
 Possible extensions include:
 
+* Add `BNE`
+* Add `JAL`
+* Add `JALR`
+* Add additional branch instructions
 * Add more RV32I instructions
-* Add `BNE`, `BLT`, and other branch instructions
-* Add `JAL` and `JALR`
-* Improve automated verification
-* Add SystemVerilog assertions
-* Perform gate-level simulation
-* Add formal verification
-* Optimize area and timing
-* Add power analysis
-* Implement a pipelined RISC-V processor
-* Perform physical-design flow after synthesis
+* Improve memory initialization
+* Add automated pass/fail verification
+* Add assertions
+* Add waveform documentation
+* Add synthesis reports
+* Add FPGA implementation
+* Extend the design to a pipelined RISC-V processor
 
 ---
 
@@ -483,12 +609,19 @@ Possible extensions include:
 
 **Mazen Mahmoud**
 
+Digital IC / RTL Design Training
 **NTI Digital IC Summer 2026**
 
 ---
 
 # Repository
 
-Complete project:
+The complete project is available here:
 
-[GitHub Repository](https://github.com/mazenmahmoud00/NTI_DIGITAL_IC_SUMMER_2026/tree/main/risc_v_single_cycle_processor)
+[RISC-V Single-Cycle Processor — GitHub](https://github.com/mazenmahmoud00/NTI_DIGITAL_IC_SUMMER_2026/tree/main/risc_v_single_cycle_processor?utm_source=chatgpt.com)
+
+---
+
+## License
+
+This project was developed for educational and training purposes as part of the NTI Digital IC Summer 2026 program.

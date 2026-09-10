@@ -96,56 +96,6 @@ risc_v_single_cycle_processor/
 
 ---
 
-# Processor Architecture
-
-The processor follows a standard single-cycle RISC-V architecture.
-
-```text
-                 ┌─────────────────┐
-                 │ Program Counter │
-                 └────────┬────────┘
-                          │
-                          ▼
-                 ┌─────────────────┐
-                 │ Instruction     │
-                 │ Memory          │
-                 └────────┬────────┘
-                          │
-                          ▼
-                ┌───────────────────┐
-                │ Control Unit      │
-                │                   │
-                │ Main Decoder      │
-                │ ALU Decoder       │
-                └─────────┬─────────┘
-                          │
-             ┌────────────┴────────────┐
-             │                         │
-             ▼                         ▼
-      ┌──────────────┐          ┌─────────────┐
-      │ Register File│          │ Immediate   │
-      │              │          │ Extension   │
-      └──────┬───────┘          └──────┬──────┘
-             │                         │
-             └──────────┬──────────────┘
-                        ▼
-                  ┌───────────┐
-                  │    ALU    │
-                  └─────┬─────┘
-                        │
-             ┌──────────┴──────────┐
-             │                     │
-             ▼                     ▼
-      ┌─────────────┐       ┌─────────────┐
-      │ Data Memory │       │ Write Back  │
-      └─────────────┘       └──────┬──────┘
-                                   │
-                                   ▼
-                            Register File
-```
-
----
-
 # Verification
 
 The RTL design is verified using a dedicated Verilog testbench located in:

@@ -1,5 +1,7 @@
 # NTI Digital IC Summer 2026
 
+# Labs
+
 This directory contains the core source files, verification environments, build artifacts, and automation scripts for the digital integrated circuit design labs.
 
 ## 📂 Directory Structure

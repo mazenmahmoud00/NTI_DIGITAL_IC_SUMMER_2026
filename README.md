@@ -1006,10 +1006,6 @@ Possible extensions include:
 
 **Mazen Mahmoud**
 
-Digital IC / RTL Design Training
-
-**NTI Digital IC Summer 2026**
-
 ---
 
 # Repository
